@@ -40,10 +40,10 @@ INSTALLED_APPS = [
 
     'django_extensions',
     'storages',
-    'compressor',
+    #'compressor',
     'bootstrapform',
     'reversion',
-    'sekizai',
+    #'sekizai',
     'sorl.thumbnail',
     'ajaximage',
     'widget_tweaks',
@@ -150,17 +150,17 @@ STATICFILES_STORAGE = os.getenv('STATICFILES_STORAGE', 'django.contrib.staticfil
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 
-COMPRESS_ENABLED = not DEBUG
-COMPRESS_STORAGE = STATICFILES_STORAGE
-COMPRESS_URL = STATIC_URL
-COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter', 'compressor.filters.cssmin.CSSMinFilter']
-COMPRESS_JS_FILTERS = ['compressor.filters.jsmin.JSMinFilter']
-COMPRESS_OFFLINE = os.getenv('COMPRESS_OFFLINE', 'False') == 'True'
+# COMPRESS_ENABLED = not DEBUG
+# COMPRESS_STORAGE = STATICFILES_STORAGE
+# COMPRESS_URL = STATIC_URL
+# COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter', 'compressor.filters.cssmin.CSSMinFilter']
+# COMPRESS_JS_FILTERS = ['compressor.filters.jsmin.JSMinFilter']
+# COMPRESS_OFFLINE = os.getenv('COMPRESS_OFFLINE', 'False') == 'True'
 
 AJAXIMAGE_AUTH_TEST = lambda u: True
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
+    #'compressor.finders.CompressorFinder',
 )

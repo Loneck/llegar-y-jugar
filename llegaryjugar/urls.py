@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^ajaximage/', include('ajaximage.urls')),
     # url(r'^inicio/', include('inicio.urls')),
     # url(r'^recinto/', include('recinto.urls')),
-    url(r'^$', include('inicio.urls')),
+    url(r'^', include('inicio.urls')),
 ]
 
 if settings.DEBUG:
