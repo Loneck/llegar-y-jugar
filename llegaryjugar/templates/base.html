@@ -16,8 +16,28 @@
 	<link href="{% static 'home/switcher/switcher.css' %}" rel="stylesheet">
 	<title>{% block title %}Llegar y jugar{% endblock title %}</title>
 	<link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}">
+	
 </head>
-<body>
+<body class="slider-background">
+	<header id="header">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+		    <div class="container">
+			  	<div class="navbar-header">
+			  		<span class="icon-bar"></span>
+			  	  </button>
+			  	  <a class="navbar-brand" href="index.html">
+			  		<img src="{% static 'home/img/logo.png' %}" alt="logo">
+			  	  </a>
+			  	</div>
+				<div class="collapse navbar-collapse" id="collapse-navbar">				 
+				  <ul class="nav navbar-nav navbar-right">				  
+					<li><a data-scroll href="#news">Noticias</a></li>
+					<li><a data-scroll href="#contact">Contacto</a></li>					
+				  </ul>
+				</div>
+			</div>
+		</nav>
+	</header>
 	{% block content %}{% endblock content %}
 	<script src="{% static 'home/js/jquery-1.11.3.min.js' %}"></script>	
 	<script src="{% static 'home/js/bootstrap.min.js' %}"></script>
@@ -30,5 +50,130 @@
 	<script src="{% static 'home/plugins/jqBootstrapValidation/jqBootstrapValidation.js' %}"></script>
 	<script type="text/javascript" src="{% static 'home/switcher/switcher.js' %}"></script>
 	<script src="{% static 'home/js/main.js' %}"></script>
+	<section id="news" class="section wow fadeInUp">
+		<div class="container">		
+			<div class="section-heading">
+				<h2>Noticias</h2>
+				<div class="separator"></div>						
+			</div>
+			<div id="blog-carousel2" class="owl-carousel">
+				<div class="item">	
+					<div class="blog-box2">
+						<figure>
+							<img src="img/img1.jpg" alt="image" class="img-responsive">
+							<ul>
+								<li><i class="fa fa-calendar"></i> <span>Jan 3, 2016</span></li>
+								<li><i class="fa fa-comment"></i> <span>180</span></li>
+							</ul>
+						</figure>
+						<h4>Noticia 1</h4>
+						<p> Artoo! Get her ready for takeoff. Good luck, Luke. See you at the rendezvous. Don't worry, Artoo. We're going, we're going.</p>		
+						<a href="blog-single.html" class="link">Leer más...</a>	
+					</div>	
+				</div>
+				<div class="item">	
+					<div class="blog-box2">
+						<figure>
+							<img src="img/img2.jpg" alt="image" class="img-responsive">
+							<ul>
+								<li><i class="fa fa-calendar"></i> <span>Feb 16, 2016</span></li>
+								<li><i class="fa fa-comment"></i> <span>16</span></li>
+							</ul>
+						</figure>
+						<h4>Noticia 2</h4>
+						<p> Only a fully trained Jedi Knight with the Force as his ally will conquer Vader and his Emperor. If you end your training now, if you choose the quick and easy path, as Vader did, you will become an agent of evil. </p>		
+						<a href="blog-single.html" class="link">Leer más...</a>	
+					</div>	
+				</div>
+				<div class="item">	
+					<div class="blog-box2">
+						<figure>
+							<img src="img/img3.jpg" alt="image" class="img-responsive">
+							<ul>
+								<li><i class="fa fa-calendar"></i> <span>March 8, 2016</span></li>
+								<li><i class="fa fa-comment"></i> <span>280</span></li>
+							</ul>
+						</figure>
+						<h4>Noticia 3</h4>
+						<p> Luke, don't give in to hate - that leads to the dark side. Strong is Vader. Mind what you have learned. Save you it can. I will. And I'll return. I promise. Told you, I did. Reckless is he. Now matters are worse. That boy is our last hope. No. There is another.</p>		
+						<a href="blog-single.html" class="link">Leer más...</a>	
+					</div>	
+				</div>
+					
+			</div>	
+			<!-- ./blog-carousel2 -->	
+				
+		</div>				
+	</section>
+	<section id="contact" class="section wow fadeInUp">
+		<div class="container">		
+			<div class="section-heading">
+				<h2>Contactanos</h2>
+				<div class="separator"></div>	
+			</div>
+			
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">				
+					<form  name="sentMessage" id="contactForm" novalidate>
+						<div class="row">
+							<div class="control-group form-group col-sm-6">
+								<div class="controls">
+									<label>Nombre</label>
+									<input type="text" class="form-control dark" id="name" placeholder="" required data-validation-required-message="Please enter your name.">
+									<p class="help-block"></p>
+								</div>
+							</div>
+							<div class="control-group form-group col-sm-6">
+								<div class="controls">
+									<label>Email</label>
+									<input type="email" class="form-control dark" id="email" placeholder="" required data-validation-required-message="Please enter your email address.">
+									<p class="help-block"></p>
+								</div>
+							</div>
+						</div>	
+						<div class="control-group form-group">
+							<div class="controls">
+								<label>Mensaje</label>
+								<textarea class="form-control dark" rows="7" id="message" placeholder="" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+								<p class="help-block"></p>
+							</div>
+						</div>
+						<div id="success"></div>						
+						<div class="padd-tb-10">
+							<button type="submit" class="btn btn-success btn-lg btn-block">Enviar</button>
+						</div>						
+					</form>
+					<div class="clearfix"></div>
+					<div class="row">
+						<div class="col-md-4 col-sm-4">
+							<div class="contact-info">			
+								<i class="fa fa-map-marker"></i> Santiago, Chile
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<div class="contact-info">			
+								<i class="fa fa-envelope-o"></i> contacto@llegaryjugar.cl
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<div class="contact-info">			
+								<i class="fa fa-phone"></i> (+93) 123 456 78
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>
+	</section>
+	<footer id="footer">
+	<div class="container">
+		<ul class="list-inline">
+			<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+			<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+			<li><a href="#"><i class="fa fa-google"></i></a></li>
+		</ul>
+		<div class="copyright">&copy; 2016 Llegar y Jugar | <a href="#" >asd 1</a></div>
+	</div>
+	</footer>
 </body>
 </html>
