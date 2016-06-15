@@ -19,6 +19,13 @@
 	
 </head>
 <body class="slider-background">
+<div id="preloader">
+	<div id="status">&nbsp;</div>
+</div>
+<div id="bg_pattern"></div>
+<a href="#" class="scrollToTop">
+	<i class="fa fa-angle-up fa-2x"></i>
+</a>
 	<header id="header">
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 		    <div class="container">
@@ -31,25 +38,52 @@
 			  	</div>
 				<div class="collapse navbar-collapse" id="collapse-navbar">				 
 				  <ul class="nav navbar-nav navbar-right">				  
+					<li><a data-scroll href="#services">Arriendos</a></li>		  
 					<li><a data-scroll href="#news">Noticias</a></li>
 					<li><a data-scroll href="#contact">Contacto</a></li>					
 				  </ul>
 				</div>
 			</div>
 		</nav>
-	</header>
-	{% block content %}{% endblock content %}
-	<script src="{% static 'home/js/jquery-1.11.3.min.js' %}"></script>	
-	<script src="{% static 'home/js/bootstrap.min.js' %}"></script>
-	<script src="{% static 'home/plugins/smooth-scroll/smooth-scroll.js' %}"></script>
-	<script src="{% static 'home/plugins/backstretch/backstretch.min.js' %}"></script>
-	<script src="{% static 'home/plugins/owl-carousel/owl.carousel.js' %}"></script>
-	<script src="{% static 'home/plugins/wow/wow.js' %}"></script>
-	<script src="{% static 'home/plugins/typed/typed.min.js' %}"></script>
-	<script src="{% static 'home/plugins/magnific-popup/jquery.magnific-popup.js' %}"></script>
-	<script src="{% static 'home/plugins/jqBootstrapValidation/jqBootstrapValidation.js' %}"></script>
-	<script type="text/javascript" src="{% static 'home/switcher/switcher.js' %}"></script>
-	<script src="{% static 'home/js/main.js' %}"></script>
+	</header>	
+	<section id="services" class="section wow fadeInUp">
+	<div class="container">	
+		<div class="section-heading">
+			<h2>Arriendos</h2>
+			<div class="separator"></div>
+		</div>
+		{% block content %}{% endblock content %}		
+		<div class="row">
+			<div class="col-md-4 col-sm-4">
+				<div class="services style2">
+					<i class="fa fa-android circle"></i>
+					<h4>Android icon</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing metus elit Quisque rutrum pellentesque imperdiet.</p>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<div class="services style2">
+					<i class="fa fa-apple circle"></i>
+					<h4>Apple icon</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing metus elit Quisque rutrum pellentesque imperdiet.</p>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<div class="services style2">
+					<i class="fa fa-windows circle"></i>
+					<h4>windows icon</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing metus elit Quisque rutrum pellentesque imperdiet.</p>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<div class="services style2">
+					<i class="fa fa-github circle"></i>
+					<h4>github icon</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing metus elit Quisque rutrum pellentesque imperdiet.</p>
+				</div>
+			</div>
+		</div>
+	</section>
 	<section id="news" class="section wow fadeInUp">
 		<div class="container">		
 			<div class="section-heading">
@@ -60,7 +94,7 @@
 				<div class="item">	
 					<div class="blog-box2">
 						<figure>
-							<img src="img/img1.jpg" alt="image" class="img-responsive">
+							<img src="{% static 'home/img/img1.jpg' %}" alt="image" class="img-responsive">
 							<ul>
 								<li><i class="fa fa-calendar"></i> <span>Jan 3, 2016</span></li>
 								<li><i class="fa fa-comment"></i> <span>180</span></li>
@@ -74,7 +108,7 @@
 				<div class="item">	
 					<div class="blog-box2">
 						<figure>
-							<img src="img/img2.jpg" alt="image" class="img-responsive">
+							<img src="{% static 'home/img/img2.jpg' %}" alt="image" class="img-responsive">
 							<ul>
 								<li><i class="fa fa-calendar"></i> <span>Feb 16, 2016</span></li>
 								<li><i class="fa fa-comment"></i> <span>16</span></li>
@@ -88,7 +122,7 @@
 				<div class="item">	
 					<div class="blog-box2">
 						<figure>
-							<img src="img/img3.jpg" alt="image" class="img-responsive">
+							<img src="{% static 'home/img/img3.jpg' %}" alt="image" class="img-responsive">
 							<ul>
 								<li><i class="fa fa-calendar"></i> <span>March 8, 2016</span></li>
 								<li><i class="fa fa-comment"></i> <span>280</span></li>
@@ -98,11 +132,8 @@
 						<p> Luke, don't give in to hate - that leads to the dark side. Strong is Vader. Mind what you have learned. Save you it can. I will. And I'll return. I promise. Told you, I did. Reckless is he. Now matters are worse. That boy is our last hope. No. There is another.</p>		
 						<a href="blog-single.html" class="link">Leer más...</a>	
 					</div>	
-				</div>
-					
-			</div>	
-			<!-- ./blog-carousel2 -->	
-				
+				</div>					
+			</div>
 		</div>				
 	</section>
 	<section id="contact" class="section wow fadeInUp">
@@ -110,8 +141,7 @@
 			<div class="section-heading">
 				<h2>Contactanos</h2>
 				<div class="separator"></div>	
-			</div>
-			
+			</div>			
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">				
 					<form  name="sentMessage" id="contactForm" novalidate>
@@ -119,14 +149,14 @@
 							<div class="control-group form-group col-sm-6">
 								<div class="controls">
 									<label>Nombre</label>
-									<input type="text" class="form-control dark" id="name" placeholder="" required data-validation-required-message="Please enter your name.">
+									<input type="text" class="form-control dark" id="name" placeholder="" required data-validation-required-message="Por favor ingresa tu nombre.">
 									<p class="help-block"></p>
 								</div>
 							</div>
 							<div class="control-group form-group col-sm-6">
 								<div class="controls">
 									<label>Email</label>
-									<input type="email" class="form-control dark" id="email" placeholder="" required data-validation-required-message="Please enter your email address.">
+									<input type="email" class="form-control dark" id="email" placeholder="" required data-validation-required-message="Por favor ingresa tu email.">
 									<p class="help-block"></p>
 								</div>
 							</div>
@@ -134,7 +164,7 @@
 						<div class="control-group form-group">
 							<div class="controls">
 								<label>Mensaje</label>
-								<textarea class="form-control dark" rows="7" id="message" placeholder="" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+								<textarea class="form-control dark" rows="7" id="message" placeholder="" required data-validation-required-message="Porfavor ingresa tu mensaje" maxlength="999" style="resize:none"></textarea>
 								<p class="help-block"></p>
 							</div>
 						</div>
@@ -175,5 +205,16 @@
 		<div class="copyright">&copy; 2016 Llegar y Jugar | <a href="#" >asd 1</a></div>
 	</div>
 	</footer>
+	<script src="{% static 'home/js/jquery-1.11.3.min.js' %}"></script>	
+	<script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'home/plugins/smooth-scroll/smooth-scroll.js' %}"></script>
+	<script src="{% static 'home/plugins/backstretch/backstretch.min.js' %}"></script>
+	<script src="{% static 'home/plugins/owl-carousel/owl.carousel.js' %}"></script>
+	<script src="{% static 'home/plugins/wow/wow.js' %}"></script>
+	<script src="{% static 'home/plugins/typed/typed.min.js' %}"></script>
+	<script src="{% static 'home/plugins/magnific-popup/jquery.magnific-popup.js' %}"></script>
+	<script src="{% static 'home/plugins/jqBootstrapValidation/jqBootstrapValidation.js' %}"></script>
+	<script type="text/javascript" src="{% static 'home/switcher/switcher.js' %}"></script> 
+	<script src="{% static 'home/js/main.js' %}"></script>
 </body>
 </html>
