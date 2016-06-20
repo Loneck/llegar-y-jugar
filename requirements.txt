@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 django==1.9.6
 dj-database-url==0.4.1
 gunicorn==19.6.0
@@ -12,4 +13,20 @@ sorl-thumbnail==12.4a1
 django-reversion==1.10.2
 django-ajaximage==0.2.8
 django-sekizai==0.9.0
+=======
+django==1.9.6
+dj-database-url==0.4.1
+gunicorn==19.6.0
+#psycopg2==2.6.1
+django-extensions==1.6.7
+ipython==4.2.0
+django-bootstrap-form==3.2.1
+boto==2.40.0
+django-storages==1.4.1
+django-compressor==2.0
+sorl-thumbnail==12.4a1
+django-reversion==1.10.2
+django-ajaximage==0.2.8
+django-sekizai==0.9.0
+>>>>>>> 7e86bb1cfad9c631e66a0c8922f09bbf5deccb66
 django-widget-tweaks==1.4.1
