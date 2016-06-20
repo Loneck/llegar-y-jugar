@@ -6,7 +6,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = '6d&t6n$r9ux^rtf69*!=q^x_sa&1z(=upcf&e4*(ltpkf6hl7c'
 
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+#DEBUG = os.getenv('DEBUG', 'False') == 'True'
+
+DEBUG = True
 
 ADMINS = (
     (os.getenv('ADMIN_NAME', 'example'), os.getenv('ADMIN_EMAIL', 'example@example.com')),
@@ -40,7 +42,6 @@ INSTALLED_APPS = [
 
     'django_extensions',
     'storages',
-    'compressor',
     'bootstrapform',
     'reversion',
     'sekizai',
@@ -150,17 +151,11 @@ STATICFILES_STORAGE = os.getenv('STATICFILES_STORAGE', 'django.contrib.staticfil
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 
-COMPRESS_ENABLED = not DEBUG
-COMPRESS_STORAGE = STATICFILES_STORAGE
-COMPRESS_URL = STATIC_URL
-COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter', 'compressor.filters.cssmin.CSSMinFilter']
-COMPRESS_JS_FILTERS = ['compressor.filters.jsmin.JSMinFilter']
-COMPRESS_OFFLINE = os.getenv('COMPRESS_OFFLINE', 'False') == 'True'
+
 
 AJAXIMAGE_AUTH_TEST = lambda u: True
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
 )
