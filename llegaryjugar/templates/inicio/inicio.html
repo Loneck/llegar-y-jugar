@@ -5,10 +5,32 @@
 {% endblock title %}
 
 {% block content %}
-	<ul>
-		<li>Paso 1</li>
-		<li>Paso 2</li>
-		<li>Paso 3</li>
-		<li>Paso 4</li>			
+	<ul class="nav nav-tabs">
+	  <li class="active"><a data-toggle="tab" href="#Paso1">Paso 1</a></li>
+	  <li><a data-toggle="tab" href="#Paso2">Paso 2</a></li>
+	  <li><a data-toggle="tab" href="#Paso3">Paso 3</a></li>
+	  <li><a data-toggle="tab" href="#Paso4">Paso 4</a></li>
 	</ul>
+	<div class="tab-content">
+	  <div id="Paso1" class="tab-pane fade in active">
+	    <h3>Escoja recinto</h3>
+	    <p>Muchos recintos.</p>
+	  </div>
+	  <div id="Paso2" class="tab-pane fade">
+	    <h3>Escoja Fecha</h3>
+	    <ul>
+	    	<li>Calendario</li>
+	    	<li>Horario</li>
+	    	<li>cancha</li>
+	    </ul>
+	  </div>
+	  <div id="Paso3" class="tab-pane fade">
+	    <h3>Escoja accesorios</h3>
+	    <p>Accesorios varios por recinto</p>
+	  </div>
+	  <div id="Paso4" class="tab-pane fade">
+	    <h3>Escoja metodo de pago</h3>
+	    <p>Metodos de pago - khipu o multicaja</p>
+	  </div>
+	</div>	
 {% endblock content %}

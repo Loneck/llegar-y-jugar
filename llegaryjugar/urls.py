@@ -9,6 +9,7 @@ urlpatterns = [
     # url(r'^inicio/', include('inicio.urls')),
     # url(r'^recinto/', include('recinto.urls')),
     url(r'^', include('inicio.urls')),
+    url(r'^login/$', 'llegaryjugar.views.login_page', name="login"),
 ]
 
 if settings.DEBUG:

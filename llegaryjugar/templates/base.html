@@ -15,8 +15,7 @@
 	<link href="{% static 'home/css/style.css' %}" rel="stylesheet">
 	<link href="{% static 'home/switcher/switcher.css' %}" rel="stylesheet">
 	<title>{% block title %}Llegar y jugar{% endblock title %}</title>
-	<link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}">
-	
+	<link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}">	
 </head>
 <body class="slider-background">
 <div id="preloader">
@@ -51,37 +50,9 @@
 		<div class="section-heading">
 			<h2>Arriendos</h2>
 			<div class="separator"></div>
-		</div>
-		{% block content %}{% endblock content %}		
+		</div>	
 		<div class="row">
-			<div class="col-md-4 col-sm-4">
-				<div class="services style2">
-					<i class="fa fa-android circle"></i>
-					<h4>Android icon</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing metus elit Quisque rutrum pellentesque imperdiet.</p>
-				</div>
-			</div>
-			<div class="col-md-4 col-sm-4">
-				<div class="services style2">
-					<i class="fa fa-apple circle"></i>
-					<h4>Apple icon</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing metus elit Quisque rutrum pellentesque imperdiet.</p>
-				</div>
-			</div>
-			<div class="col-md-4 col-sm-4">
-				<div class="services style2">
-					<i class="fa fa-windows circle"></i>
-					<h4>windows icon</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing metus elit Quisque rutrum pellentesque imperdiet.</p>
-				</div>
-			</div>
-			<div class="col-md-4 col-sm-4">
-				<div class="services style2">
-					<i class="fa fa-github circle"></i>
-					<h4>github icon</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing metus elit Quisque rutrum pellentesque imperdiet.</p>
-				</div>
-			</div>
+			{% block content %}{% endblock content %}	
 		</div>
 	</section>
 	<section id="news" class="section wow fadeInUp">
