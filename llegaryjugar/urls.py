@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -9,8 +10,10 @@ urlpatterns = [
     # url(r'^inicio/', include('inicio.urls')),
     # url(r'^recinto/', include('recinto.urls')),
     url(r'^', include('inicio.urls')),
-    url(r'^login/$', 'llegaryjugar.views.login_page', name="login"),
+    url(r'^login/$', 'llegaryjugar.views.login_page', name="Login"),
 ]
+
+admin.site.site_header = 'Administración de Llegar y Jugar'
 
 if settings.DEBUG:
     import debug_toolbar

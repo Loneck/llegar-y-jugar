@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.utils.translation import ugettext as _
+import datetime
 
 from llegaryjugar.apps.base.models import BaseModel
 from llegaryjugar.apps.clubs.models import Club
@@ -23,6 +24,7 @@ class Schedule(BaseModel):
 
     club = models.ForeignKey(Club, related_name='schedule', verbose_name=_('club'), null=True)
     day = models.PositiveIntegerField(_('day'), choices=DAY_CHOICES)
+    fecha = models.DateField(_("Fecha"), default=datetime.date.today)
     start_time = models.TimeField(_('start time'))
     end_time = models.TimeField(_('end time'))
 

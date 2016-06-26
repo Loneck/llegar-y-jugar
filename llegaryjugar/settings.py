@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'llegaryjugar.apps.clubs',
     'llegaryjugar.apps.courts',
     'llegaryjugar.apps.schedules',
+    'llegaryjugar.apps.reservations',
     # 'inicio',
     # 'cancha',
 
