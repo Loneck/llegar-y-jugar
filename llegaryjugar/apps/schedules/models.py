@@ -24,7 +24,7 @@ class Schedule(BaseModel):
 
     club = models.ForeignKey(Club, related_name='schedule', verbose_name=_('club'), null=True)
     day = models.PositiveIntegerField(_('day'), choices=DAY_CHOICES)
-    fecha = models.DateField(_("Fecha"), default=datetime.date.today)
+    date = models.DateField(_("Date"), default=datetime.date.today)
     start_time = models.TimeField(_('start time'))
     end_time = models.TimeField(_('end time'))
 

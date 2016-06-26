@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from llegaryjugar.apps.base.admin import BaseAdmin
+
+from .models import Reservations
+
+@admin.register(Reservations)
+class ReservationsAdmin(BaseAdmin):
+    pass
