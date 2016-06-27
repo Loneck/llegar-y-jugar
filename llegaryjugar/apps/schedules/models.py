@@ -29,4 +29,4 @@ class Schedule(BaseModel):
     end_time = models.TimeField(_('end time'))
 
     def __str__(self):
-        return self.get_day_display()
+        return '%s %s %s' %(self.get_day_display(),self.start_time,self.end_time)

@@ -15,3 +15,5 @@ class CourtAdmin(BaseAdmin):
 @admin.register(ScheduleCourt)
 class ScheduleCourtAdmin(BaseAdmin):
     pass
+    list_display = ('court', 'schedule', 'price')
+
