@@ -21,6 +21,7 @@ class Court(BaseModel):
     name = models.CharField(_('name'), max_length=50)
     description = models.TextField(_('description'))
     # schedules = models.ManyToManyField(Schedule, verbose_name=_('schedules'))
+    is_active = models.BooleanField(_('is active'), default=True)
 
     def __str__(self):
         return self.name
