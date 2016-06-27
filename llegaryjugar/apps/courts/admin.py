@@ -8,6 +8,7 @@ from .models import Court, ScheduleCourt
 @admin.register(Court)
 class CourtAdmin(BaseAdmin):
     pass
+    list_display = ('club','name',)
     # filter_horizontal = ('schedules',)
 
 

@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib import admin
 from django.utils.translation import ugettext as _
 
 from llegaryjugar.apps.base.models import BaseModel
@@ -20,12 +21,12 @@ class Court(BaseModel):
     name = models.CharField(_('name'), max_length=50)
     description = models.TextField(_('description'))
     # schedules = models.ManyToManyField(Schedule, verbose_name=_('schedules'))
-    is_active = models.BooleanField(_('is active'), default=True)
 
     def __str__(self):
         return self.name
 
     objects = CourtManager()
+    list_display = ('club','name','is_active')
 
 
 class ScheduleCourt(BaseModel):
