@@ -7,16 +7,8 @@ from llegaryjugar.apps.reservations.forms import StepForm1, StepForm2, StepForm3
 from llegaryjugar.apps.reservations.views import StepWizard
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^ajaximage/', include('ajaximage.urls')),
-    # url(r'^inicio/', include('inicio.urls')),
-    # url(r'^recinto/', include('recinto.urls')),
-    url(r'^', include('inicio.urls')),
-    url(r'^login/', 'llegaryjugar.views.login_page', name="Login"),
-    url(r'^', include('llegaryjugar.apps.reservations.urls')),
+    url(r'^inicio/', StepWizard.as_view([StepForm1, StepForm2, StepForm3, StepForm4])),
 ]
-
-admin.site.site_header = 'Administración de Llegar y Jugar'
 
 if settings.DEBUG:
     import debug_toolbar
