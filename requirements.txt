@@ -13,3 +13,4 @@ django-reversion==1.10.2
 django-ajaximage==0.2.8
 django-sekizai==0.9.0
 django-widget-tweaks
+django-formtools

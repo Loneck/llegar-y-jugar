@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'ajaximage',
     'widget_tweaks',
+    'formtools',
 ]
 
 MIDDLEWARE_CLASSES = [
