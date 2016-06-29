@@ -29,9 +29,7 @@
 	{% endif %}
 	<input type="submit" value="submit "/>
 	</form> -->
-	<div class="container">
-    <div class="row">
-		<section>
+	<section>
         <div class="wizard">
             
                 <ul class="nav nav-wizard">
@@ -61,10 +59,35 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="step1">
                         <h3>Paso 1</h3>
-                        <p>Este es el paso 1</p>
-                        {% for club in clubs %}
-                        	{{ club }}
-                        {% endfor %}
+                        <p>Recintos</p>
+
+                            <div class="row">
+                        	{% for club in clubs %}
+									<div class="col-sm-6 col-md-4">
+										<div class="thumbnail" >
+											<h4 class="text-center"><span class="label label-info">{{ club.name }}</span></h4>
+											<img src="{{ club.logo.url }}" class="img-responsive">
+											<div class="caption">
+												<div class="row">
+													<div class="col-md-6 col-xs-6">
+														<h3>{{ club.description }}</h3>
+													</div>
+												</div>
+												<p>{{ club.address }}</p>
+												<div class="row">
+													<div class="col-md-6">
+														<a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-thumbs-up"></span> Me gusta</a> 
+													</div>
+													<div class="col-md-6">
+														<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Seleccionar</a></div>
+												</div>
+
+												<p> </p>
+											</div>
+										</div>
+									</div>
+                        		{% endfor %}
+							</div>	
                         <ul class="list-inline pull-right">
                             <li><button type="button" class="btn btn-primary">Continuar</button></li>
                         </ul>
@@ -99,6 +122,4 @@
             </form>
         </div>
     </section>
-   </div>
-</div>
 {% endblock content %}
