@@ -3,8 +3,8 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf.urls.static import static
-from llegaryjugar.apps.reservations.forms import StepForm1, StepForm2, StepForm3, StepForm4
-from llegaryjugar.apps.reservations.views import StepWizard
+# from llegaryjugar.apps.reservations.forms import StepForm1, StepForm2, StepForm3, StepForm4
+# from llegaryjugar.apps.reservations.views import StepWizard
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -13,7 +13,7 @@ urlpatterns = [
     # url(r'^recinto/', include('recinto.urls')),
     url(r'^', include('inicio.urls')),
     url(r'^login/', 'llegaryjugar.views.login_page', name="Login"),
-    url(r'^', include('llegaryjugar.apps.reservations.urls')),
+    # url(r'^', include('llegaryjugar.apps.reservations.urls')),
 ]
 
 admin.site.site_header = 'Administración de Llegar y Jugar'

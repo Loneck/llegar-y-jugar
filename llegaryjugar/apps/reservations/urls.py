@@ -7,7 +7,7 @@ from llegaryjugar.apps.reservations.forms import StepForm1, StepForm2, StepForm3
 from llegaryjugar.apps.reservations.views import StepWizard
 
 urlpatterns = [
-    url(r'^inicio/', StepWizard.as_view([StepForm1, StepForm2, StepForm3, StepForm4])),
+    # url(r'^inicio/', StepWizard.as_view([StepForm1, StepForm2, StepForm3, StepForm4])),
 ]
 
 if settings.DEBUG:

@@ -32,8 +32,7 @@
 	    <h3>Escoja metodo de pago</h3>
 	    <p>Metodos de pago - khipu o multicaja</p>
 	  </div>
-	</div> -->
-
+	</div>
 	<h2>Realizar reserva</h2>
 	<p> Paso {{ wizard.steps.step1 }} de {{ wizard.steps.count }}</p>
 	{% for field in form %}
@@ -56,5 +55,77 @@
 	<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">"prev step"</button>
 	{% endif %}
 	<input type="submit" value="submit "/>
-	</form>
+	</form> -->
+	<div class="container">
+    <div class="row">
+		<section>
+        <div class="wizard">
+            
+                <ul class="nav nav-wizard">
+
+                    <li class="active">
+                        <a href="#step1" data-toggle="tab">Seleccionar Recinto</a>
+                    </li>
+
+                    <li class="disabled">
+                        <a href="#step2" data-toggle="tab">Seleccionar Horario</a>
+                    </li>
+
+                    <li class="disabled">
+                        <a href="#step3" data-toggle="tab">Seleccionar Accesorios</a>
+                    </li>
+                    
+                     <li class="disabled">
+                        <a href="#step4" data-toggle="tab">Seleccionar Metodo de Pago</a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#step5" data-toggle="tab">Confirmación</a>
+                    </li>
+                </ul>
+           
+
+            <form>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="step1">
+                        <h3>Paso 1</h3>
+                        <p>Este es el paso 1</p>
+                        {% for club in clubs %}
+                        	{{ club }}
+                        {% endfor %}
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-primary">Continuar</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="step2">
+                        <h3>Paso 2</h3>
+                        <p>Este es el paso 2</p>
+                        <ul class="list-inline pull-right">
+                           <li><button type="button" class="btn btn-primary">Continuar</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="step3">
+                        <h3>Paso 3</h3>
+                        <p>Este es el paso 3</p>
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-primary">Continuar</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="step4">
+                        <h3>Paso 4</h3>
+                        <p>Este es el paso 3</p>
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-primary">Continuar</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="step5">
+                        <h3>Reserva exitosa!</h3>
+                        <p>Has realizado una reserva correctamente. Los datos de tu reserva fueron enviados a tu correo</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </form>
+        </div>
+    </section>
+   </div>
+</div>
 {% endblock content %}
