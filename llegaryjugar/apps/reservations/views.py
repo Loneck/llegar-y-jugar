@@ -36,4 +36,4 @@ from llegaryjugar.apps.reservations.models import Club
 
 def club_list(request):
 	clubs = Club.objects.all()
-	return render(request, '/inicio.html', {'clubs': clubs})
+	return render(request, 'inicio/inicio.html', {'clubs': clubs})

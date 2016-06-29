@@ -13,7 +13,7 @@ urlpatterns = [
     # url(r'^recinto/', include('recinto.urls')),
     url(r'^', include('inicio.urls')),
     url(r'^login/', 'llegaryjugar.views.login_page', name="Login"),
-    # url(r'^', include('llegaryjugar.apps.reservations.urls')),
+    url(r'^', include('llegaryjugar.apps.reservations.urls')),
 ]
 
 admin.site.site_header = 'Administración de Llegar y Jugar'
