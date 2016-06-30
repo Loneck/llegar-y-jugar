@@ -12,8 +12,9 @@ urlpatterns = [
     # url(r'^inicio/', include('inicio.urls')),
     # url(r'^recinto/', include('recinto.urls')),
     url(r'^', include('llegaryjugar.apps.reservations.urls')),
+    url(r'', include('llegaryjugar.apps.blog.urls')),
     # url(r'^', include('inicio.urls')),
-    url(r'^login/', 'llegaryjugar.views.login_page', name="Login"),
+    # url(r'^login/', 'llegaryjugar.views.login_page', name="Login"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'Administración de Llegar y Jugar'

@@ -5,5 +5,5 @@ from llegaryjugar.apps.base.admin import BaseAdmin
 from .models import Reservations
 
 @admin.register(Reservations)
-class ReservationsAdmin(BaseAdmin):
+class ReservationAdmin(BaseAdmin):
     pass

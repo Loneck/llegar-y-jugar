@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'llegaryjugar.apps.courts',
     'llegaryjugar.apps.schedules',
     'llegaryjugar.apps.reservations',
+    'llegaryjugar.apps.accesorie',
+    'llegaryjugar.apps.blog',
     # 'inicio',
     # 'cancha',
 
