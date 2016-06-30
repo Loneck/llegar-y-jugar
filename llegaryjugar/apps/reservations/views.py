@@ -42,6 +42,19 @@ def club_list(request):
 
 class ContactWizard(SessionWizardView):
     def done(self, form_list, **kwargs):
-        return render_to_response('done.html', {
+        return render_to_response('inicio/done.html', {
             'form_data': [form.cleaned_data for form in form_list],
         })
+    def get_form_initial(self, step):
+
+        # steps are named 'step1', 'step2', 'step3'
+        current_step = self.storage.current_step
+        
+        # get the data for step 1 on step 3
+        if current_step == 'ContactForm2':
+            prev_data = self.storage.get_step_data('ContactForm1')
+            some_var = prev_data.get('ContactForm1-some_var','')
+        
+            return self.initial_dict.get(step, {'some_var': some_var})
+
+        return self.initial_dict.get(step, {})
