@@ -9,10 +9,11 @@ from llegaryjugar.apps.reservations.forms import ContactForm1, ContactForm2
 from llegaryjugar.apps.reservations.views import ContactWizard
 
 urlpatterns = [
-    url(r'^$', views.club_list),
+    url(r'^$', views.club_list),  # Esta URL evita que se ejecute la url de abajo.
     url(r'^$', ContactWizard.as_view([ContactForm1, ContactForm2])),
 ]
 
+# No es necesario esto ya que esta definido en el archivo urls.py principal.
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [url(r'^__debug__/', include(debug_toolbar.urls))]
