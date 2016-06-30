@@ -34,6 +34,14 @@ from llegaryjugar.apps.reservations.models import Club
 # 	def get_form_initial(self, step):
 # 		return self.initial_dict.get(step, {'hola': 1234})
 
+
 def club_list(request):
 	clubs = Club.objects.all()
 	return render(request, 'inicio/inicio.html', {'clubs': clubs})
+
+
+class ContactWizard(SessionWizardView):
+    def done(self, form_list, **kwargs):
+        return render_to_response('done.html', {
+            'form_data': [form.cleaned_data for form in form_list],
+        })

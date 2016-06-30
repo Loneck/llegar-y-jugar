@@ -4,9 +4,13 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf.urls.static import static
 from . import views
+from llegaryjugar.apps.reservations.views import club_list
+from llegaryjugar.apps.reservations.forms import ContactForm1, ContactForm2
+from llegaryjugar.apps.reservations.views import ContactWizard
 
 urlpatterns = [
     url(r'^$', views.club_list),
+    url(r'^$', ContactWizard.as_view([ContactForm1, ContactForm2])),
 ]
 
 if settings.DEBUG:
