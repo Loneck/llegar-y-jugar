@@ -7,6 +7,7 @@ from formtools.wizard.views import SessionWizardView
 from django.core.mail import send_mail
 from django.template.response import TemplateResponse
 from llegaryjugar.apps.reservations.forms import ClubForm, ScheduleForm, AccesorieForm, PaymentForm
+from llegaryjugar.apps.reservations.models import Reservations
 
 # def club_list(request):
 #     clubs = Club.objects.all()
@@ -15,10 +16,16 @@ from llegaryjugar.apps.reservations.forms import ClubForm, ScheduleForm, Accesor
 class StepWizard(SessionWizardView):
     template_name = 'wizard_form.html'
     form_list = [ClubForm, ScheduleForm, AccesorieForm, PaymentForm] 
-    
+
 
     def done(self, form_list, **kwargs):
-        # reserve = Reservations.objects.create(subject )
+        # data = {k: v for form in form_list for k, v in form.cleaned_data.items()}
+        instance = Reservations()
+
+        for form in form_list:
+            for key, value in form.cleaned_data.iteritems():
+                setattr(instance, key, value)
+            instance.save()
         print form_list
         return render_to_response('done.html', {
             'form_data': [form.cleaned_data for form in form_list],
