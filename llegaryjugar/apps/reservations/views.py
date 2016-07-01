@@ -7,42 +7,26 @@ from formtools.wizard.views import SessionWizardView
 from django.core.mail import send_mail
 from django.template.response import TemplateResponse
 from llegaryjugar.apps.reservations.models import Club
+from llegaryjugar.apps.reservations.forms import ClubForm, ScheduleForm, AccesorieForm, PaymentForm
 
-# class StepWizard(SessionWizardView):
-#   template_name = "inicio.html"
-
-#   def done(self, form_list, **kwargs):
-#       form_data = process_form_data(form_list)
-
-#       return render_to_response('done.html', {'form_data': form_data})
-
-#   def process_form_data(form_list):
-#       form_data = [form.cleaned_data for form in form_list]
-
-#       logr.debug(form_data[0]['club'])
-#       logr.debug(form_data[1]['scheduleCourt'])
-#       logr.debug(form_data[2]['accesories'])
-#       logr.debug(form_data[3]['paymentMethod'])
-
-#       send_mail(form_data[0]['club'],
-#                 form_data[1]['scheduleCourt'],
-#                 form_data[2]['accesories'],
-#                 form_data[3]['paymentMethod'],
-#                 ['leo.torrejon@gmail.com'], fail_silently=False)
-
-#       return form_data
-
-#   def get_form_initial(self, step):
-#       return self.initial_dict.get(step, {'hola': 1234})
+# def club_list(request):
+#     clubs = Club.objects.all()
+#     return render(request, 'inicio/inicio.html', {'clubs': clubs})
 
 
-def club_list(request):
-    clubs = Club.objects.all()
-    return render(request, 'inicio/inicio.html', {'clubs': clubs})
+FORMS = [("Recintos", llegaryjugar.apps.reservations.forms.ClubForm),
+        ("Horarios", llegaryjugar.apps.reservations.forms.ScheduleForm),
+        ("Accesorios", llegaryjugar.apps.reservations.forms.AccesorieForm),
+        ("Metodo", llegaryjugar.apps.reservations.forms.PaymentForm)]
 
+TEMPLATES = {"Recintos": "recintos.html",
+            "Horarios": "horarios.html",
+            "Accesorios": "accesorios.html",
+            "Metodo": "metodo_pago.html"}
 
 class ContactWizard(SessionWizardView):
-    template_name = 'wizard_form.html'
+    def get_template_names(self):
+        return [TEMPLATES[self.steps.current]]
 
     def done(self, form_list, **kwargs):
         return render_to_response('done.html', {
