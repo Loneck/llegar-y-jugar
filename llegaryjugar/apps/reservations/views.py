@@ -30,7 +30,7 @@ class StepWizard(SessionWizardView):
         # print form_dict
         # reserve = Reservations(**form_dict)
         
-        reserve = Reservations.objects.create(club = form_dict['0'], schedule = form_dict['1'], accesorie = form_dict['2'], price = form_dict['3'])
+        reserve = Reservations.objects.create(club = form_dict.cleaned_data['club'], schedule = form_dict.cleaned_data['1'], accesorie = form_dict.cleaned_data['2'], price = form_dict.cleaned_data['3'])
         # reserve = Reservations(schedule = 'club')
         # reserve.save()
 
