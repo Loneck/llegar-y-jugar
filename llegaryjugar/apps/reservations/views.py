@@ -18,15 +18,22 @@ class StepWizard(SessionWizardView):
     form_list = [ClubForm, ScheduleForm, AccesorieForm, PaymentForm] 
 
 
-    def done(self, form_list, **kwargs):
+    def done(self, form_list, form_dict, **kwargs):
         # data = {k: v for form in form_list for k, v in form.cleaned_data.items()}
-        instance = Reservations()
+        # instance = Reservations()
 
-        for form in form_list:
-            for key, value in form.cleaned_data.iteritems():
-                setattr(instance, key, value)
-            instance.save()
-        print form_list
+        # for form in form_list:
+        #     for key, value in form.cleaned_data.iteritems():
+        #         setattr(instance, key, value)
+        #     instance.save()
+        # print form_list
+        # print form_dict
+        # reserve = Reservations(**form_dict)
+        
+        reserve = Reservations.objects.create(club = form_dict['0'], schedule = form_dict['1'], accesorie = form_dict['2'], price = form_dict['3'])
+        # reserve = Reservations(schedule = 'club')
+        # reserve.save()
+
         return render_to_response('done.html', {
             'form_data': [form.cleaned_data for form in form_list],
             })

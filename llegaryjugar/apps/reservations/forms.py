@@ -21,14 +21,13 @@ from llegaryjugar.apps.schedules.models import Schedule
 #     message = forms.CharField(max_length=100)
 
 class ClubForm(forms.Form):
-    subject = forms.CharField(max_length=100)
-    sender = forms.EmailField()
+    club = forms.CharField(max_length=100)
 
 class ScheduleForm(forms.Form):
-    message = forms.CharField(widget=forms.Textarea)
+    schedule = forms.CharField(max_length=100)
 
 class AccesorieForm(forms.Form):
-    message2 = forms.CharField(widget=forms.Textarea)
+    accesorie = forms.CharField(max_length=100)
 
 class PaymentForm(forms.Form):
-    message3 = forms.CharField(widget=forms.Textarea)    
+    price = forms.CharField(max_length=100)

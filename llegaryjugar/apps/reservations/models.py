@@ -12,7 +12,7 @@ from llegaryjugar.apps.accesorie.models import Accesorie
 
 
 class Reservations(BaseModel):
-    schedule = models.ForeignKey(ScheduleCourt, related_name='schedule_schedule', verbose_name=_('scheduleCourt'), null=True)
     club = models.ForeignKey(Club, related_name='club_name', null=True)
+    schedule = models.ForeignKey(ScheduleCourt, related_name='schedule_schedule', null=True)
     accesorie = models.ForeignKey(Accesorie, related_name='accesorie', null=True)
-    price = models.DecimalField(_('price'), decimal_places=2, max_digits=30)
+    price = models.DecimalField(_('price'), decimal_places=2, max_digits=30, null=True)
