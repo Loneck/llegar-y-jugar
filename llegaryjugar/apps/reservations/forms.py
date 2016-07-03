@@ -7,6 +7,7 @@ from django.utils.translation import ugettext as _
 from llegaryjugar.apps.clubs.models import Club
 from llegaryjugar.apps.courts.models import ScheduleCourt
 from llegaryjugar.apps.schedules.models import Schedule
+from llegaryjugar.apps.reservations.models  import Reservations
 
 # class StepForm1(forms.Form):
 #     club = models.ForeignKey(Club, related_name='court', verbose_name=_('club'))
@@ -20,14 +21,22 @@ from llegaryjugar.apps.schedules.models import Schedule
 # class StepForm4(forms.Form):
 #     message = forms.CharField(max_length=100)
 
-class ClubForm(forms.Form):
-    club = forms.CharField(max_length=100)
+class ClubForm(forms.ModelForm):
+    class  Meta:
+        model = Reservations
+        fields = ('club',)
 
-class ScheduleForm(forms.Form):
-    schedule = forms.CharField(max_length=100)
+class ScheduleForm(forms.ModelForm):
+    class  Meta:
+        model = Reservations
+        fields = ('schedule',)
+            
+class AccesorieForm(forms.ModelForm):
+    class  Meta:
+        model = Reservations
+        fields = ('accesorie',)
 
-class AccesorieForm(forms.Form):
-    accesorie = forms.CharField(max_length=100)
-
-class PaymentForm(forms.Form):
-    price = forms.CharField(max_length=100)
+class PaymentForm(forms.ModelForm):
+    class  Meta:
+        model = Reservations
+        fields = ('price',)
