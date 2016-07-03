@@ -50,7 +50,7 @@ class AccesorieForm(ClubForm):
         super(AccesorieForm, self).__init__(*args, **kwargs)
         self.fields['accesorie'].queryset = Accesorie.objects.filter()
 
-    class Meta(ScheduleForm.Meta):
+    class Meta(ClubForm.Meta):
         fields = ('accesorie',)
 
 
