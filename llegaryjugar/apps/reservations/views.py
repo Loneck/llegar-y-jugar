@@ -3,9 +3,12 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response, render
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login
-from formtools.wizard.views import SessionWizardView
 from django.core.mail import send_mail
 from django.template.response import TemplateResponse
+from django.shortcuts import redirect
+
+from formtools.wizard.views import SessionWizardView
+
 from llegaryjugar.apps.reservations.forms import ClubForm, ScheduleForm, AccesorieForm, PaymentForm
 from llegaryjugar.apps.reservations.models import Reservations
 
@@ -34,10 +37,13 @@ class StepWizard(SessionWizardView):
         return self.instance
 
     def done(self, form_list, **kwargs):
-        self.instance.save()
-        return render_to_response('done.html', {
-            'form_data': [form.cleaned_data for form in form_list],
-            })
+
+        data = {}
+        for form in form_list:
+            data.update(form.cleaned_data)
+        Reservations.objects.create(**data)
+
+        return redirect('/')
 
     # def done(self, form_list, form_dict, **kwargs):
     #     # data = {k: v for form in form_list for k, v in form.cleaned_data.items()}
