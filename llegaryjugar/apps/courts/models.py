@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.contrib import admin
 from django.utils.translation import ugettext as _
 
 from llegaryjugar.apps.base.models import BaseModel
@@ -24,7 +23,7 @@ class Court(BaseModel):
     is_active = models.BooleanField(_('is active'), default=True)
 
     def __str__(self):
-        return '%s %s' %(self.name,self.club)
+        return '%s %s' % (self.name, self.club)
 
     objects = CourtManager()
 
@@ -35,5 +34,4 @@ class ScheduleCourt(BaseModel):
     price = models.DecimalField(_('price'), decimal_places=2, max_digits=30)
 
     def __str__(self):
-        return '%s %s' %(self.schedule,self.court)
-
+        return '%s %s' % (self.schedule, self.court)

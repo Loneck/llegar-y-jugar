@@ -8,6 +8,7 @@ from llegaryjugar.apps.clubs.models import Club
 from llegaryjugar.apps.courts.models import ScheduleCourt
 from llegaryjugar.apps.schedules.models import Schedule
 from llegaryjugar.apps.reservations.models  import Reservations
+from llegaryjugar.apps.accesorie.models import Accesorie
 
 # class StepForm1(forms.Form):
 #     club = models.ForeignKey(Club, related_name='court', verbose_name=_('club'))
@@ -21,22 +22,40 @@ from llegaryjugar.apps.reservations.models  import Reservations
 # class StepForm4(forms.Form):
 #     message = forms.CharField(max_length=100)
 
+
 class ClubForm(forms.ModelForm):
-    class  Meta:
+
+    def __init__(self, *args, **kwargs):
+        self.club = kwargs.pop('club', None)
+        super(ClubForm, self).__init__(*args, **kwargs)
+
+    class Meta:
         model = Reservations
         fields = ('club',)
 
-class ScheduleForm(forms.ModelForm):
-    class  Meta:
-        model = Reservations
+
+class ScheduleForm(ClubForm):
+
+    def __init__(self, *args, **kwargs):
+        super(ScheduleForm, self).__init__(*args, **kwargs)
+        self.fields['schedule'].queryset = ScheduleCourt.objects.filter(court__club=self.club)
+
+    class Meta(ClubForm.Meta):
         fields = ('schedule',)
-            
-class AccesorieForm(forms.ModelForm):
-    class  Meta:
-        model = Reservations
+
+
+class AccesorieForm(ClubForm):
+
+    def __init__(self, *args, **kwargs):
+        super(AccesorieForm, self).__init__(*args, **kwargs)
+        self.fields['accesorie'].queryset = Accesorie.objects.filter()
+
+    class Meta(ScheduleForm.Meta):
         fields = ('accesorie',)
 
+
 class PaymentForm(forms.ModelForm):
-    class  Meta:
+
+    class Meta:
         model = Reservations
         fields = ('price',)

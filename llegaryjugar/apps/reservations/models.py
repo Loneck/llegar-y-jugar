@@ -6,7 +6,6 @@ from django.utils import timezone
 from django.utils.translation import ugettext as _
 from llegaryjugar.apps.base.models import BaseModel
 from llegaryjugar.apps.clubs.models import Club
-from llegaryjugar.apps.schedules.models import Schedule
 from llegaryjugar.apps.courts.models import ScheduleCourt
 from llegaryjugar.apps.accesorie.models import Accesorie
 
