@@ -5,8 +5,10 @@ from django.contrib import admin
 from django.utils.translation import ugettext as _
 
 from llegaryjugar.apps.base.models import BaseModel
+from llegaryjugar.apps.clubs.models import Club
 
 class Accesorie(BaseModel):
+    club = models.ForeignKey(Club, related_name='accesorie', verbose_name=_('club'), null=True)
     name = models.CharField(_('name'), max_length=50)
     description = models.TextField(_('description'))
     price = models.DecimalField(_('price'), decimal_places=2, max_digits=30)

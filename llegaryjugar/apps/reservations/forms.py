@@ -6,7 +6,6 @@ from django.utils.translation import ugettext as _
 
 from llegaryjugar.apps.clubs.models import Club
 from llegaryjugar.apps.courts.models import ScheduleCourt
-from llegaryjugar.apps.schedules.models import Schedule
 from llegaryjugar.apps.reservations.models  import Reservations
 from llegaryjugar.apps.accesorie.models import Accesorie
 
@@ -48,13 +47,17 @@ class AccesorieForm(ClubForm):
 
     def __init__(self, *args, **kwargs):
         super(AccesorieForm, self).__init__(*args, **kwargs)
-        self.fields['accesorie'].queryset = Accesorie.objects.filter()
+        self.fields['accesorie'].queryset = Accesorie.objects.get(accesorie__club=self.club)
 
     class Meta(ClubForm.Meta):
         fields = ('accesorie',)
 
 
 class PaymentForm(ClubForm):
+
+    def __init__(self, *args, **kwargs):
+        super(PaymentForm, self).__init__(*args, **kwargs)
+        self.fields['price'].queryset = ScheduleCourt.objects.filter(scheduleCourt__price=self.price)
 
     class Meta(ClubForm.Meta):
         fields = ('price',)
