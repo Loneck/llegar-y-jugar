@@ -31,6 +31,13 @@ class StepWizard(SessionWizardView):
             )
         return kwargs
 
+    def get_context_data(self, form, **kwargs):
+        context = super(StepWizard, self).get_context_data(form=form, **kwargs)
+        if self.steps.current == '3':
+            price = self.get_cleaned_data_for_step('3')
+            context.update({'price': price})
+        return context
+
     def get_form_instance(self, step):
         if self.instance is None:
             self.instance = Reservations()

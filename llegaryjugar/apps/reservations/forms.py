@@ -54,8 +54,7 @@ class AccesorieForm(ClubForm):
         fields = ('accesorie',)
 
 
-class PaymentForm(forms.ModelForm):
+class PaymentForm(ClubForm):
 
-    class Meta:
-        model = Reservations
+    class Meta(ClubForm.Meta):
         fields = ('price',)
