@@ -32,7 +32,7 @@ class StepWizard(SessionWizardView):
         return kwargs
 
     def get_context_data(self, form, **kwargs):
-        print self.get_cleaned_data_for_step('0')
+        print self.get_cleaned_data_for_step('1')
         context = super(StepWizard, self).get_context_data(form=form, **kwargs)
         if self.steps.current == '3':
             price = self.get_cleaned_data_for_step('1')['price']
