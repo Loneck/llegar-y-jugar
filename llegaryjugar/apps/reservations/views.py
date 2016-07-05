@@ -83,17 +83,7 @@ class StepWizard(SessionWizardView):
     #     return render_to_response('done.html', {
     #         'form_data': [form.cleaned_data for form in form_list],
     #         })
-
+    
+    # Acá es el valor inicial por ejemplo que el campo nombre ya venga con un nombre por defecto
     def get_form_initial(self, step):
-        # Acá es el valor inicial por ejemplo que el campo nombre ya venga con un nombre por defecto
-
-        # steps are named 'step1', 'step2', 'step3'
-        current_step = self.storage.current_step
-
-        # get the data for step 1 on step 3
-        if current_step == 'ScheduleForm':
-            prev_data = self.storage.get_step_data('ClubForm')
-            some_var = prev_data.get('ClubForm-some_var', '')
-            return self.initial_dict.get(step, {'some_var': some_var})
-
         return self.initial_dict.get(step, {})
