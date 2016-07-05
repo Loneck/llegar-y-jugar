@@ -45,7 +45,14 @@ class StepWizard(SessionWizardView):
         return self.instance
 
     def get_form_initial(self, step):
-        return self.initial_dict.get(step, {'price': self.price})
+        initial_dict = {}
+        if self.steps.current == '3':
+            #algoQueLeDigaDeDondeSacarPrice
+            initial_dict = { 'price': self.price }
+        return initial_dict
+
+    # def get_form_initial(self, step):
+    #     return self.initial_dict.get(step, {'price': self.price})
 
     def done(self, form_list, **kwargs):
 
@@ -83,11 +90,3 @@ class StepWizard(SessionWizardView):
     #     return render_to_response('done.html', {
     #         'form_data': [form.cleaned_data for form in form_list],
     #         })
-    
-    # Acá es el valor inicial por ejemplo que el campo nombre ya venga con un nombre por defecto
-    def get_form_initial(self, step):
-        initial_dict = {}
-        if self.steps.current == '3':
-            
-            initial_dict = { 'price': self.price }
-        return initial_dict
