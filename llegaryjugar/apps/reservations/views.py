@@ -44,8 +44,8 @@ class StepWizard(SessionWizardView):
             self.instance = Reservations()
         return self.instance
 
-    # def get_form_initial(self, step):
-    #     return self.initial_dict.get(step, {'price': self.price})
+    def get_form_initial(self, step):
+        return self.initial_dict.get(step, {'price': self.price})
 
     def done(self, form_list, **kwargs):
 
@@ -86,4 +86,8 @@ class StepWizard(SessionWizardView):
     
     # Acá es el valor inicial por ejemplo que el campo nombre ya venga con un nombre por defecto
     def get_form_initial(self, step):
-        return self.initial_dict.get(step, {})
+        initial_dict = {}
+        if self.steps.current == '3':
+            
+            initial_dict = { 'price': self.price }
+        return initial_dict
