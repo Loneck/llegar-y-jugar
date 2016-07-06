@@ -56,8 +56,11 @@ class AccesorieForm(ClubForm):
 class PaymentForm(ClubForm):
 
     def __init__(self, *args, **kwargs):
+        self.price = kwargs.pop('price', None)
+        print '##################'
+        print self.price
         super(PaymentForm, self).__init__(*args, **kwargs)
-        # self.fields['price'].queryset = ScheduleCourt.objects.filter(price=self.price)
+        self.fields['price'].initial = self.price
 
     class Meta(ClubForm.Meta):
         fields = ('price',)
