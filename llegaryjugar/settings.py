@@ -24,6 +24,7 @@ SITE_ID = os.getenv('SITE_ID', int(1))
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'registration',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -86,6 +87,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'llegaryjugar.wsgi.application'
 
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
 
 DATABASES = {
     'default': dj_database_url.config(default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'))

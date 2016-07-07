@@ -57,10 +57,9 @@ class PaymentForm(ClubForm):
 
     def __init__(self, *args, **kwargs):
         self.price = kwargs.pop('price', None)
-        print '##################'
-        print self.price
         super(PaymentForm, self).__init__(*args, **kwargs)
         self.fields['price'].initial = self.price
-
+        print '##################'
+        print self.price
     class Meta(ClubForm.Meta):
         fields = ('price',)

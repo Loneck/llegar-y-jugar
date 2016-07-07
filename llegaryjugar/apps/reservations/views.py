@@ -43,15 +43,15 @@ class StepWizard(SessionWizardView):
             kwargs.update( {'price': self.price} )
         return kwargs
  
-    def get_context_data(self, form, **kwargs):
-        context = super(StepWizard, self).get_context_data(form=form, **kwargs)
-        if self.steps.current == '3':
-            pass
-            schedule = self.get_cleaned_data_for_step('1')['schedule']
-            self.price = schedule.price
+    # def get_context_data(self, form, **kwargs):
+    #     context = super(StepWizard, self).get_context_data(form=form, **kwargs)
+    #     if self.steps.current == '3':
+    #         pass
+    #         schedule = self.get_cleaned_data_for_step('1')['schedule']
+    #         self.price = schedule.price
  
-            context.update({'price': self.price})
-        return context
+    #         context.update({'price': self.price})
+    #     return context
  
     def get_form_instance(self, step):
         if self.instance is None:
