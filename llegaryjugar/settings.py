@@ -23,8 +23,8 @@ SITE_ID = os.getenv('SITE_ID', int(1))
 
 
 INSTALLED_APPS = [
-    'llegaryjugar.apps.registration_templates',
     'django.contrib.admin',
+    'llegaryjugar.apps.registration_templates',
     'registration',
     'django.contrib.auth',
     'django.contrib.contenttypes',
