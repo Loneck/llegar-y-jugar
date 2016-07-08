@@ -53,13 +53,15 @@ class AccesorieForm(ClubForm):
         fields = ('accesorie',)
 
 
-class PaymentForm(ClubForm):
+class PaymentForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         self.price = kwargs.pop('price', None)
+        kwargs.update(initial={
+            'price': self.price
+        })
         super(PaymentForm, self).__init__(*args, **kwargs)
-        self.fields['price'].initial = self.price
-        print '##################'
-        print self.price
-    class Meta(ClubForm.Meta):
+
+    class Meta:
+        model = Reservations
         fields = ('price',)
