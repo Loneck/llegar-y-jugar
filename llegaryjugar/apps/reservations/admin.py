@@ -7,4 +7,4 @@ from .models import Reservations
 @admin.register(Reservations)
 class ReservationAdmin(BaseAdmin):
     pass
-    list_display = ('club', 'schedule', 'accesorie', 'price')
+    list_display = ('author', 'club', 'schedule', 'reserved_at', 'accesorie', 'price')

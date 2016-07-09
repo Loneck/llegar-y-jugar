@@ -17,7 +17,7 @@
 					<span class="button-checkbox">
 						<button type="button" class="btn" data-color="info">Recuerdame</button>
 	                    <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
-						<a href="" class="btn btn-link pull-right">Olvido la contraseña?</a>
+						<a href="{% url 'auth_password_reset' %}" class="btn btn-link pull-right">Olvido la contraseña?</a>
 					</span>
 					
 					<div class="row"><br>
@@ -26,7 +26,7 @@
 	                        <input type="hidden" name="next" value="{{ next }}" />
 						</div>
 						<div class="col-xs-6 col-sm-6 col-md-6">
-							<a href="{% url 'registration_register' %}" class="btn btn-lg btn-primary btn-block">Registrarse</a>
+							<a href="{% url 'registration_register' %}" class="btn btn-lg btn-primary btn-block">{% trans "Register" %}</a>
 						</div>
 					</div>
 				</fieldset>
