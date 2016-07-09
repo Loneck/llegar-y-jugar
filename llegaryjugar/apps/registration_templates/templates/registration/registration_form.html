@@ -1,10 +1,22 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n bootstrap%}
 
 {% block content %}
-<form method="post" action=".">
-  {{ form.as_p }}
+<div class="container">
 
-  <input type="submit" value="{% trans 'Submit' %}" />
-</form>
+	<div class="row">
+	    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+			<h2>Por Favor Registrate</h2>
+			<form method="post" role="form" action=".">
+			  {% csrf_token %}
+			  {{ form|bootstrap }}
+
+				<div class="row">
+					<div class="col-xs-12 col-md-6"><input type="submit" class="btn btn-lg btn-success btn-block value="{% trans 'Submit' %}"  tabindex="7"></div>
+					<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Sign In</a></div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 {% endblock %}
