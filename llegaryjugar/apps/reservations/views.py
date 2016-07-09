@@ -97,7 +97,10 @@ class StepWizard(SessionWizardView):
         data = {}
         for form in form_list:
             data.update(form.cleaned_data)
-        Reservations.objects.create(**data)
+        # Reservations.objects.create(**data)
+        reservation = Reservations.objects.create(**data)
+        reservation.author = self.request.user
+        reservation.save()
         return render_to_response('done.html', {
             'form_data': [form.cleaned_data for form in form_list],
             })
