@@ -1,17 +1,17 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n bootstrap%}
 
 {% block content %}
 
 {% if account %}
 
-<p>{% trans "Account successfully activated" %}</p>
+<p>{% trans "Cuenta activada satisfactoriamente" %}</p>
 
 <p><a href="{% url auth_login %}">{% trans "Log in" %}</a></p>
 
 {% else %}
 
-<p>{% trans "Account activation failed" %}</p>
+<p>{% trans "Activacion de cuenta fallida" %}</p>
 
 {% endif %}
 

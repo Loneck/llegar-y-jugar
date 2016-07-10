@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 from llegaryjugar.apps.reservations.forms import ClubForm, ScheduleForm, AccesorieForm, PaymentForm
 from llegaryjugar.apps.reservations.views import StepWizard
 
+
 urlpatterns = [
     # url(r'^$', views.club_list),  # Esta URL evita que se ejecute la url de abajo.
     url(r'^$', StepWizard.as_view([ClubForm, ScheduleForm, AccesorieForm, PaymentForm])),
