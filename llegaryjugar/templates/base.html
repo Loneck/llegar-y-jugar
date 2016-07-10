@@ -40,7 +40,16 @@
 					<li><a data-scroll href="#services">Arriendos</a></li>		  
 					<li><a data-scroll href="#news">Noticias</a></li>
 					<li><a data-scroll href="#contact">Contacto</a></li>
-					<li><a href="{% url 'auth_login' %}" class="dropdown-toggle">{% trans "Iniciar Sesión" %}</a>
+					{% if not user.is_authenticated %}
+						<li class="dropdown"><a href="{% url 'auth_login' %}" class="dropdown-toggle">{% trans "Iniciar Sesión" %}</a>
+						</li>
+                    {% else %}
+                    	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.username|title }}</a>
+                    	<div class="dropdown-menu dropdown-profile animated fadeInUp">
+                    		<a href="#">{% trans "Profile" %}</a> | <a href="{% url 'auth_logout' %}">{% trans "Logout" %}</a>
+                    	</div>
+                    	</li>
+                    {% endif %}
                     </li>
 				  </ul>
 				</div>
