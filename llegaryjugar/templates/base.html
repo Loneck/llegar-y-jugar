@@ -31,7 +31,7 @@
 			  	<div class="navbar-header">
 			  		<span class="icon-bar"></span>
 			  	  </button>
-			  	  <a class="navbar-brand" href="#">
+			  	  <a class="navbar-brand" href="/">
 			  		<img src="{% static 'home/img/logo.png' %}" alt="logo">
 			  	  </a>
 			  	</div>
@@ -40,7 +40,8 @@
 					<li><a data-scroll href="#services">Arriendos</a></li>		  
 					<li><a data-scroll href="#news">Noticias</a></li>
 					<li><a data-scroll href="#contact">Contacto</a></li>
-					
+					<li><a href="{% url 'auth_login' %}" class="dropdown-toggle">{% trans "Iniciar Sesión" %}</a>
+                    </li>
 				  </ul>
 				</div>
 			</div>

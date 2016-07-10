@@ -1,5 +1,5 @@
 {% extends "registration/registration_base.html" %}
-{% load i18n %}
+{% load i18n bootstrap %}
 
 {% block title %}{% trans "Account Activated" %}{% endblock %}
 
@@ -10,6 +10,9 @@
     {% trans "You can log in." %}
     {% endif %}
 </p>
+
+<div class="col-xs-12 col-md-6"><a href="{% url 'auth_login' %}" class="btn btn-primary btn-block btn-lg">Iniciar Sesión</a></div>
+
 {% endblock %}
 
 

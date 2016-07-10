@@ -1,6 +1,6 @@
 {% load i18n %}
-{% trans "Activacion de cuenta en" %} {{ site.name }}:
+{% trans "Activacion de cuenta en Llegar y Jugar" %}:
 
 http://{{ site.domain }}{% url 'registration_activate' activation_key %}
 
-{% blocktrans %}Link is valid for {{ expiration_days }} days.{% endblocktrans %}
+{% blocktrans %}Este link es valido por {{ expiration_days }} días.{% endblocktrans %}

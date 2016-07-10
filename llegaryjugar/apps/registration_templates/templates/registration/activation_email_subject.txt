@@ -1,1 +1,1 @@
-{% load i18n %}{% trans "Activacion de cuenta en" %} {{ site.name }}
+{% load i18n %}{% trans "Activacion de cuenta en Llegar y Jugar" %}
