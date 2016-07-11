@@ -11,7 +11,7 @@ from llegaryjugar.apps.accesorie.models import Accesorie
 
 
 class Reservations(BaseModel):
-    author = models.ForeignKey('auth.User', null=True, default=True)
+    author = models.ForeignKey('auth.User', related_name='reservations', null=True, default=True)
     club = models.ForeignKey(Club, related_name='club_name', null=True)
     schedule = models.ForeignKey(ScheduleCourt, related_name='schedule_schedule', null=True)
     accesorie = models.ForeignKey(Accesorie, related_name='accesorie', null=True)
