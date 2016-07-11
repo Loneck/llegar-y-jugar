@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="news" class="section wow fadeInUp">
+		<div class="container">		
+			<div class="section-heading">
+				<h2>Noticias</h2>
+				<div class="separator"></div>						
+			</div>
+			<div id="blog-carousel2" class="owl-carousel">
+			{% for post in posts %}
+				<div class="item">	
+					<div class="blog-box2">
+						<figure>
+							<img src="#" alt="image" class="img-responsive">
+							<ul>
+								<li><i class="fa fa-calendar"></i> <span>{{ post.published_date }}</span></li>
+							</ul>
+						</figure>{{ post.logo }}
+						<h4>{{ post.title }}</h4>
+						<p>{{ post.text|linebreaks }}</p>		
+						<a href="{% url 'post_detail' pk=post.pk %}" class="link">Leer más...</a>	
+					</div>	
+				</div>
+				{% endfor %}			
+			</div>
+		</div>				
+	</section>	
+{% endblock content %}

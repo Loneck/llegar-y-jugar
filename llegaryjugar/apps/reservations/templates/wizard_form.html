@@ -2,24 +2,33 @@
 {% load staticfiles i18n flatpages bootstrap %}
 
 {% block content %}
-<p>Paso {{ wizard.steps.step1 }} de {{ wizard.steps.count }}</p>
-<form method="post" enctype="multipart/form-data">
-{% csrf_token %}
-{{ wizard.form.media }}
-{{ wizard.management_form }}
-{% if wizard.form.forms %}
-    {{ wizard.form.management_form }}
-    {% for form in wizard.form.forms %}
-        {{ form|bootstrap }}
-    {% endfor %}
-{% else %}
-    {{ wizard.form|bootstrap }}
-{% endif %}
+<section id="services" class="section wow fadeInUp">
+	<div class="container">	
+		<div class="section-heading">
+			<h2>Arriendos</h2>
+			<div class="separator"></div>
+		</div>	
+			<div class="row">
+				<p>Paso {{ wizard.steps.step1 }} de {{ wizard.steps.count }}</p>
+				<form method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+				{{ wizard.form.media }}
+				{{ wizard.management_form }}
+				{% if wizard.form.forms %}
+				    {{ wizard.form.management_form }}
+				    {% for form in wizard.form.forms %}
+				        {{ form|bootstrap }}
+				    {% endfor %}
+				{% else %}
+				    {{ wizard.form|bootstrap }}
+				{% endif %}
 
-{% if wizard.steps.prev %}
-<button name="wizard_goto_step" type="submit" class="btn btn-primary" value="{{ wizard.steps.first }}">{% trans "first step" %}</button>
-<button name="wizard_goto_step" type="submit" class="btn btn-primary" value="{{ wizard.steps.prev }}">{% trans "prev step" %}</button>
-{% endif %}
-<input type="submit" name="submit" class="btn btn-primary" value="{% trans "siguiente" %}" />
-</form>
+				{% if wizard.steps.prev %}
+				<button name="wizard_goto_step" type="submit" class="btn btn-primary" value="{{ wizard.steps.first }}">{% trans "first step" %}</button>
+				<button name="wizard_goto_step" type="submit" class="btn btn-primary" value="{{ wizard.steps.prev }}">{% trans "prev step" %}</button>
+				{% endif %}
+				<input type="submit" name="submit" class="btn btn-primary" value="{% trans "siguiente" %}" />
+				</form>
+	</div>
+</section>
 {% endblock %}
