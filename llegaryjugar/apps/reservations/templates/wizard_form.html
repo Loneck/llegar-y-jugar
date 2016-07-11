@@ -2,6 +2,13 @@
 {% load staticfiles i18n flatpages bootstrap %}
 
 {% block content %}
+<section id="services" class="section wow fadeInUp">
+	<div class="container">	
+	<div class="section-heading">
+				<h2>Arriendos</h2>
+				<div class="separator"></div>
+			</div>	
+			<div class="row">
 <p>Paso {{ wizard.steps.step1 }} de {{ wizard.steps.count }}</p>
 <form method="post" enctype="multipart/form-data">
 {% csrf_token %}

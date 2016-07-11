@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^ajaximage/', include('ajaximage.urls')),
-    # url(r'^accounts/', include('llegaryjugar.apps.accounts.urls')),
+    url(r'^accounts/', include('llegaryjugar.apps.accounts.urls')),
     url(r'^accounts/', include('registration.backends.default.urls')),
     # url(r'^inicio/', include('inicio.urls')),
     # url(r'^recinto/', include('recinto.urls')),
