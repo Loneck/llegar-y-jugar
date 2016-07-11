@@ -41,16 +41,17 @@
 					<li><a data-scroll href="#news">Noticias</a></li>
 					<li><a data-scroll href="#contact">Contacto</a></li>
 					{% if not user.is_authenticated %}
-						<li class="dropdown"><a href="{% url 'auth_login' %}" class="dropdown-toggle">{% trans "Iniciar Sesión" %}</a>
+						<li class="dropdown"><a href="{% url 'auth_login' %}" class="dropdown-toggle">{% trans "Iniciar Sesión " %}<span class="glyphicon glyphicon-user pull-right"></span></a>
 						</li>
                     {% else %}
-                    	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.username|title }}</a>
-                    	<div class="dropdown-menu dropdown-profile animated fadeInUp">
-                    		<a href="#">{% trans "Profile" %}</a> | <a href="{% url 'auth_logout' %}">{% trans "Logout" %}</a>
-                    	</div>
+                    	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.username|title }} <span class="glyphicon glyphicon-user pull-right"></span></a>
+	                    	 <ul class="dropdown-menu">
+				            	<li><a href="#">{% trans "Perfil" %}<span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+				            	<li class="divider"></li>
+	                    	 	<li><a href="{% url 'auth_logout' %}">{% trans "Cerrar Sesión" %}<span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+				         	 </ul>
                     	</li>
                     {% endif %}
-                    </li>
 				  </ul>
 				</div>
 			</div>
