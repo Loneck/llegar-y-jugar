@@ -2,9 +2,17 @@
 {% load bootstrap %}
 
 {% block content %}
-    <h1>Nuevo post</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form|bootstrap  }}
-        <button type="submit" class="save btn btn-primary btn-default">Guardar</button>
-    </form>
+<section id="news" class="section wow fadeInUp">
+		<div class="container">		
+			<div class="section-heading">
+				<h2>Noticias</h2>
+				<div class="separator"></div>						
+			</div>
+		    <h1>Nuevo post</h1>
+		    <form method="POST" class="post-form">{% csrf_token %}
+		        {{ form|bootstrap  }}
+		        <button type="submit" class="save btn btn-primary btn-default">Guardar</button>
+		    </form>
+		</div>				
+</section>	    
 {% endblock %}

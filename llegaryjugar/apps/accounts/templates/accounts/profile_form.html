@@ -7,17 +7,29 @@
 {% endblock title %}
 
 {% block content %}
-{% if messages %}
-	<div class="alert alert-success">
-		{% for message in messages %}
-    		{{ message }}
-    	{% endfor %}
-	</div>
-{% endif %}
-<form action="submit" method="POST" enctype="multipart/form-data">
-	{% csrf_token %}
-	{{ form|bootstrap }}
-	<!-- <button type="submit" class="btn btn-lg btn-primary pull-right">{% trans "Actualizar" %}</button> -->
-	<a href="{% url 'profile_edit_view' %}" class="btn btn-primary btn-lg pull-right">{% trans "Actualizar" %}</a>
-</form>
+<section id="news" class="section wow fadeInUp">
+        <div class="container">     
+            <div class="section-heading">
+                <h2>Perfil</h2>
+                <div class="separator"></div>                       
+            </div>
+                <div class="row">
+                    <div class="col-md-6">
+						{% if messages %}
+							<div class="alert alert-success">
+								{% for message in messages %}
+						    		{{ message }}
+						    	{% endfor %}
+							</div>
+						{% endif %}
+						<form action="submit" method="POST" enctype="multipart/form-data">
+							{% csrf_token %}
+							{{ form|bootstrap }}
+							<button type="submit" class="btn btn-lg btn-primary pull-right">{% trans "Actualizar" %}</button>
+							<!-- <a href="{% url 'profile_edit_view' %}" class="btn btn-primary btn-lg pull-right">{% trans "Actualizar" %}</a> -->
+						</form>
+					</div>
+            	</div> 
+        </div>
+</section>
 {% endblock content %}

@@ -2,60 +2,67 @@
 {% load i18n %}
 
 {% block title %}
-	{% trans "Profile" %}
+	{% trans "Perfil" %}
 {% endblock title %}
 {% block content %}
+<section id="news" class="section wow fadeInUp">
+        <div class="container">     
+            <div class="section-heading">
+                <h2>Perfil</h2>
+                <div class="separator"></div>                       
+            </div>
 
-	<div class="panel panel-default  animated fadeInDown animation-delay-8">
-        <div class="panel-body">
-            {% if object.photo %}
-            	<img src="{{ object.image_avatar_large_url }}" alt="{{ object.user.username }}" class="alignleft imageborder">
-            {% endif %}
-            <p class="no-margin-top">
-            	<strong>{% trans "Usuario" %}:</strong> {{ object.user.username }} <br/>
-            	<strong>{% trans "Location" %}:</strong> {{ object.location }} <br/>
-            	<strong>{% trans "Acerca de" %}:</strong> {{ object.about }} <br/> <br/>
-                <div class="clearfix"></div>
-                <hr>
-                <div class="row">
-                <h3>Historial de arriendos</h3>
-                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Recinto</th>
-                            <th>Horario</th>
-                            <th>Accesorio</th>
-                            <th>Precio</th>
-                            <th>Arrendado el</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Recinto</th>
-                            <th>Horario</th>
-                            <th>Accesorio</th>
-                            <th>Precio</th>
-                            <th>Arrendado el</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                        {% for reservation in user.reservations.all %}
-                        <tr>
-                            <td>{{ reservation.club }}</td>
-                            <td>{{ reservation.schedule }}</td>
-                            <td>{{ reservation.accesorie }}</td>
-                            <td>{{ reservation.price }}</td>
-                            <td>{{ reservation.reserved_at }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+        	<div class="panel panel-default  animated fadeInDown animation-delay-8">
+                <div class="panel-body">
+                    {% if object.photo %}
+                    	<img src="{{ object.image_avatar_large_url }}" alt="{{ object.user.username }}" class="alignleft imageborder">
+                    {% endif %}
+                    <p class="no-margin-top">
+                    	<strong>{% trans "Usuario" %}:</strong> {{ object.user.username }} <br/>
+                    	<strong>{% trans "Location" %}:</strong> {{ object.location }} <br/>
+                    	<strong>{% trans "Acerca de" %}:</strong> {{ object.about }} <br/> <br/>
+                        <div class="clearfix"></div>
+                        <hr>
+                        <div class="row">
+                        <h3>Historial de arriendos</h3>
+                        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Recinto</th>
+                                    <th>Horario</th>
+                                    <th>Accesorio</th>
+                                    <th>Precio</th>
+                                    <th>Arrendado el</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Recinto</th>
+                                    <th>Horario</th>
+                                    <th>Accesorio</th>
+                                    <th>Precio</th>
+                                    <th>Arrendado el</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                {% for reservation in user.reservations.all %}
+                                <tr>
+                                    <td>{{ reservation.club }}</td>
+                                    <td>{{ reservation.schedule }}</td>
+                                    <td>{{ reservation.accesorie }}</td>
+                                    <td>{{ reservation.price }}</td>
+                                    <td>{{ reservation.reserved_at }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        </div>
+                    </p>
+                    <div class="clearfix"></div>
+                    <hr>
+                    <a href="{% url 'profile_edit_view' %}" class="btn btn-primary btn-lg pull-right">{% trans "Modificar" %}</a>
                 </div>
-            </p>
-            <div class="clearfix"></div>
-            <hr>
-            <a href="{% url 'profile_edit_view' %}" class="btn btn-primary btn-lg pull-right">{% trans "Modificar" %}</a>
+            </div>
         </div>
-    </div>
-
+</section>
 {% endblock content %}
