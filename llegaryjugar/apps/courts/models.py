@@ -32,6 +32,6 @@ class ScheduleCourt(BaseModel):
     court = models.ForeignKey(Court, related_name='schedule_court', verbose_name=_('court'))
     schedule = models.ForeignKey(Schedule, related_name='schedule_courtyard', verbose_name=_('schedule'))
     price = models.DecimalField(_('price'), decimal_places=2, max_digits=30)
-
+    is_active = models.BooleanField(_('is active'), default=True)
     def __str__(self):
         return '%s %s' % (self.schedule, self.court)

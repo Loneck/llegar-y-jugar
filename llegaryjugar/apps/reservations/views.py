@@ -101,8 +101,8 @@ class StepWizard(SessionWizardView):
         reservation = Reservations.objects.create(**data)
         reservation.author = self.request.user
         reservation.save()
-        return render_to_response('done.html', {
-            'form_data': [form.cleaned_data for form in form_list],
+        return render_to_response('done.html', { 'reservation' :reservation,
+            # 'form_data': [form.cleaned_data for form in form_list],
             })
         # return redirect('/')
  

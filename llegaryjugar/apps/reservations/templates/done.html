@@ -6,50 +6,45 @@
 			<h2>Arriendos</h2>
 			<div class="separator"></div>						
 		</div>
-
-	    <h2> Gracias por reservar con nosotros</h2>
-	    {% for form1 in form_data %}
-    		{{ forloop.counter0 }} {{ form1 }}
-	    {% endfor %}
+		<h2> Gracias por reservar con nosotros</h2>
+		<div class="well animated fadeInDown animation-delay-8">
+			<div class="panel-body">
+				<div class="row">
+					<h3>Resumen de arriendo</h3>
+					<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th>Recinto</th>
+								<th>Horario</th>
+								<th>Accesorio</th>
+								<th>Precio</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th>Recinto</th>
+								<th>Horario</th>
+								<th>Accesorio</th>
+								<th>Precio</th>
+							</tr>
+						</tfoot>
+						<tbody>	
+							<tr>
+								<td>{{ reservation.club }}</td>
+								<td>{{ reservation.schedule }}</td>
+								<td>{{ reservation.accesorie }}</td>
+								<td>{{ reservation.price }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="clearfix"></div>
+				<hr>
+				<div class="col-xs-12 col-md-2">
+					<a href="/" class="btn btn-lg btn-primary btn-block">Nueva Reserva</a>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="well animated fadeInDown animation-delay-8">
-                <div class="panel-body">
-                   		<div class="row">
-	                       	<h3>Resumen de arriendo</h3>
-	                        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-	                            <thead>
-	                                <tr>
-	                                    <th>Recinto</th>
-	                                    <th>Horario</th>
-	                                    <th>Accesorio</th>
-	                                    <th>Precio</th>
-	                                </tr>
-	                            </thead>
-	                            <tfoot>
-	                                <tr>
-	                                    <th>Recinto</th>
-	                                    <th>Horario</th>
-	                                    <th>Accesorio</th>
-	                                    <th>Precio</th>
-	                                </tr>
-	                            </tfoot>
-	                            <tbody>	                                
-		                                {% for form in form_data %}
-		                                <tr>
-		                                    <td>{{ form.club }}</td>
-		                                    <td>{{ form.schedule }}</td>
-		                                    <td>{{ form.accesorie }}</td>
-		                                    <td>{{ form.price }}</td>
-		                                </tr>
-		                                {% endfor %}
-	                            </tbody>
-	                        </table>
-                        </div>
-	                    </p>
-	                    <div class="clearfix"></div>
-	                    <hr>
-	                    </br><p><input type=button class="btn btn-primary align-right " value="Nueva Reserva" href="/"></p>	
-                </div>
-    </div>
 </section>
 {% endblock %}
