@@ -2,21 +2,26 @@
 {% load i18n bootstrap%}
 
 {% block content %}
-<div class="container">
+<section id="news" class="section wow fadeInUp">
+	<div class="container">		
+		<div class="section-heading">
+			<h2>Registro</h2>
+			<div class="separator"></div>						
+		</div>
+		<div class="row">
+		    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+				<h2>Por Favor Registrate</h2>
+				<form method="post" role="form" action=".">
+				  {% csrf_token %}
+				  {{ form|bootstrap }}
 
-	<div class="row">
-	    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-			<h2>Por Favor Registrate</h2>
-			<form method="post" role="form" action=".">
-			  {% csrf_token %}
-			  {{ form|bootstrap }}
-
-				<div class="row">
-					<div class="col-xs-12 col-md-6"><input type="submit" class="btn btn-lg btn-success btn-block value="{% trans 'Submit' %}"  tabindex="7"></div>
-					<div class="col-xs-12 col-md-6"><a href="{% url 'auth_login' %}" class="btn btn-primary btn-block btn-lg">Iniciar Sesión</a></div>
-				</div>
-			</form>
+					<div class="row">
+						<div class="col-xs-12 col-md-6"><input type="submit" class="btn btn-lg btn-success btn-block value="Registrarse"  tabindex="7"></div>
+						<div class="col-xs-12 col-md-6"><a href="{% url 'auth_login' %}" class="btn btn-primary btn-block btn-lg">Iniciar Sesión</a></div>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
+</section>
 {% endblock %}
